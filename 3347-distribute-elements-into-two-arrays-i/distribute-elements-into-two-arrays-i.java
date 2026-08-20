@@ -1,26 +1,26 @@
+import java.util.ArrayList;
+import java.util.List;
+
 class Solution {
     public int[] resultArray(int[] nums) {
-        int n = nums.length;
-        int[] arr1 = new int[n];
-        int[] arr2 = new int[n];
+        List<Integer> arr1 = new ArrayList<>();
+        List<Integer> arr2 = new ArrayList<>();
 
-        arr1[0] = nums[0];
-        arr2[0] = nums[1];
+        arr1.add(nums[0]);
+        arr2.add(nums[1]);
 
-        int p1 = 1; 
-        int p2 = 1; 
-
-        for (int i = 2; i < n; i++) {
-            if (arr1[p1 - 1] > arr2[p2 - 1]) {
-                arr1[p1++] = nums[i];
+        for (int i = 2; i < nums.length; i++) {
+            if (arr1.get(arr1.size() - 1) > arr2.get(arr2.size() - 1)) {
+                arr1.add(nums[i]);
             } else {
-                arr2[p2++] = nums[i];
+                arr2.add(nums[i]);
             }
         }
 
-        int[] result = new int[n];
-        System.arraycopy(arr1, 0, result, 0, p1);
-        System.arraycopy(arr2, 0, result, p1, p2);
+        int[] result = new int[nums.length];
+        int idx = 0;
+        for (int val : arr1) result[idx++] = val;
+        for (int val : arr2) result[idx++] = val;
 
         return result;
     }
