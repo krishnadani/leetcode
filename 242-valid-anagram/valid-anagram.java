@@ -12,14 +12,21 @@ class Solution {
         }
 
         for(char c:t.toCharArray()){
-            if(!h.containsKey(c)){
+            // if(!h.containsKey(c)){
+            //     return false;
+            // }
+            // else if(h.get(c)==0){
+            //     return false;
+            // }
+            // else{
+            //     h.put(c,h.get(c)-1);
+            // }
+            h.put(c , h.getOrDefault(c,0)-1);
+        }
+
+        for(int count:h.values()){
+            if(count!=0){
                 return false;
-            }
-            else if(h.get(c)==0){
-                return false;
-            }
-            else{
-                h.put(c,h.get(c)-1);
             }
         }
         return true;
