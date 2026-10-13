@@ -8,6 +8,7 @@ class Solution {
 		
 		
 		while(high>=low) {
+            
 			mid=low + (high-low)/2 ;
 			if(arr[mid]==el) {
 				return mid ;
